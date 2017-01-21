@@ -1,14 +1,25 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
+var app;
+app = angular.module('store', [
+    'ngRoute',
+    'store.view1',
+    'store.view2',
+    'store.version'
+]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('!');
 
-  $routeProvider.otherwise({redirectTo: '/view1'});
+    $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
+
+app.controller('StoreController',function(){
+    this.product = gem;
+});
+
+var gem = {
+  name: 'Dodecahedron',
+    price: 2.95,
+    description: 'Lorem Ipsum Description',
+}
+
